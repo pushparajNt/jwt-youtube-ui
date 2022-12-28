@@ -10,14 +10,14 @@
             <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/admin">Admin DashBoard</a>
+            <a class="nav-link active" aria-current="page" routerLink="/admin" *ngIf="roleName==='Admin'">Admin DashBoard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/user">User DashBoard</a>
+            <a class="nav-link active" aria-current="page" routerLink="/user" *ngIf="roleName==='user'">User DashBoard</a>
           </li>
         </ul>
-      <button type="button" class="btn btn-success" routerLink="/login">login</button>
-      <button type="button" class="btn btn-danger">logout</button>
+      <button type="button" class="btn btn-success" routerLink="/login" *ngIf="!isLoggedIn();">login</button>
+      <button type="button" class="btn btn-danger" *ngIf="isLoggedIn();" (click)="logout();">logout</button>
       </div>
     </div>
   </nav>
